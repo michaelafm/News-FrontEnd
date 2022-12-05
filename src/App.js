@@ -1,5 +1,4 @@
 import "./App.css";
-import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Nav from "./components/Nav";
@@ -9,7 +8,6 @@ import SingleArticle from "./components/SingleArticle";
 
 
 function App() {
-  const [articles, setArticles] = useState([]);
 
   return (
     <div className="App">
@@ -18,7 +16,7 @@ function App() {
       <Routes> 
         <Route
             path="/"
-            element={ <Articles articles={articles} setArticles={setArticles}/>}
+            element={ <Articles />}
           />
            <Route
             path="/article/:article_id"

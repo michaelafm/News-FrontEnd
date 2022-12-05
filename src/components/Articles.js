@@ -1,21 +1,29 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getArticles } from "../utils/api";
 import { Link } from "react-router-dom";
 
+function Articles() {
+  const [articles, setArticles] = useState([]);
+  const [loadingArticles, setLoadingArticles] = useState(true);
 
-function Articles({ articles, setArticles }) {
   useEffect(() => {
     getArticles().then((retreivedArticles) => {
       setArticles(retreivedArticles);
+      setLoadingArticles(false);
     });
-  }, [setArticles]);
+  }, []);
 
-  return (
+  return loadingArticles ? (
+    <p>...loading articles</p>
+  ) : (
     <main>
       <ul className="Articles_container">
         {articles.map((article) => {
           return (
-            <Link key={article.article_id} to={`/article/${article.article_id}`}>
+            <Link
+              key={article.article_id}
+              to={`/article/${article.article_id}`}
+            >
               <li
                 className="Articles_container_article"
                 key={article.article_id}
