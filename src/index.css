@@ -35,3 +35,16 @@ code {
   border-width: 5px;
   border-style: solid;
 }
+
+.SingleArticle {
+  border-color: purple;
+  border-width: 5px;
+  border-style: solid;
+  min-height: 100vh;
+}
+
+.Nav {
+  border-color: blue;
+  border-width: 5px;
+  border-style: solid;
+}
