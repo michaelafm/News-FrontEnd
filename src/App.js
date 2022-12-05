@@ -22,7 +22,7 @@ function App() {
           />
            <Route
             path="/article/:article_id"
-            element={<SingleArticle setArticles={setArticles} />}
+            element={<SingleArticle />}
           />
       </Routes>
     </div>

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getArticleById } from "../utils/api";
 
-function SingleArticle({ setArticles }) {
+function SingleArticle() {
   const [singleArticle, setSingleArticle] = useState({});
 
   const { article_id } = useParams();
