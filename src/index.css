@@ -11,3 +11,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.Header {
+  border-color: red;
+  border-width: 5px;
+  border-style: solid;
+}
+
+.Articles_container {  
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
+  list-style: none;
+  padding-left: 0;
+  border-color: goldenrod;
+  border-width: 5px;
+  border-style: solid;
+  min-height: 100vh;
+}
+
+.Articles_container_article {
+  border-color: green;
+  border-width: 5px;
+  border-style: solid;
+}
