@@ -40,6 +40,7 @@ code {
   border-color: purple;
   border-width: 5px;
   border-style: solid;
+  min-height: 100vh;
 }
 
 .Nav {
