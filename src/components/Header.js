@@ -1,8 +1,13 @@
+import { Heading } from "grommet";
+
 function Header() {
   return (
-    <div className="Header">
-      <h1>NC News</h1>
-    </div>
+
+<Heading
+size='large'
+color='#00739D'>
+  NC News
+</Heading>
   );
 }
 
