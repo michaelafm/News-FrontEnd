@@ -7,7 +7,7 @@ function Articles ({articles, setArticles}) {
       getArticles().then((retreivedArticles) => {
         setArticles(retreivedArticles);
       });
-    }, [setArticles]);
+    }, []);
 
   
     return (
