@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { getArticles } from "../utils/api";
 import { Link } from "react-router-dom";
+import {Card} from "grommet";
 
 function Articles() {
   const [articles, setArticles] = useState([]);
   const [loadingArticles, setLoadingArticles] = useState(true);
 
   useEffect(() => {
+    setLoadingArticles(true);
     getArticles().then((retreivedArticles) => {
       setArticles(retreivedArticles);
       setLoadingArticles(false);
@@ -24,8 +26,9 @@ function Articles() {
               key={article.article_id}
               to={`/article/${article.article_id}`}
             >
+              <Card className="Articles_card_article" pad="medium">
               <li
-                className="Articles_container_article"
+                className="Articles_article"
                 key={article.article_id}
               >
                 <h3>Title: {article.title}</h3>
@@ -34,6 +37,7 @@ function Articles() {
                 <p>Votes: {article.votes}</p>
                 <p>Comment count: {article.comment_count}</p>
               </li>
+              </Card>
             </Link>
           );
         })}
