@@ -105,3 +105,20 @@ ul {
   width: 40px;
 }
 
+.CommentAdder {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.CommentAdder_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
+
+#CommentAdder_newComment {
+  height: 20vh;
+  width: 100vh;
+}
+

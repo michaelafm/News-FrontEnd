@@ -39,3 +39,9 @@ export const getUsers = () => {
     return res.data.users;
   })
 }
+
+export const postComment = (newComment, article_id) => {  
+  return myApi.post(`/articles/${article_id}/comments`, newComment).then((res) => {
+    return res.data.comment;
+  })
+}
