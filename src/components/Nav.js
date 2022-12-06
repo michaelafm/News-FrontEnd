@@ -16,6 +16,9 @@ function Nav () {
       <Link to="/">
         <p>All articles</p>
       </Link>
+      <Link to="/users">
+        <p>Users</p>
+      </Link>
     </nav>
         </Box>
 
