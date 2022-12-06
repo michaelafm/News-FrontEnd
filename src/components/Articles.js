@@ -8,6 +8,7 @@ function Articles() {
   const [loadingArticles, setLoadingArticles] = useState(true);
 
   useEffect(() => {
+    setLoadingArticles(true);
     getArticles().then((retreivedArticles) => {
       setArticles(retreivedArticles);
       setLoadingArticles(false);

@@ -12,6 +12,7 @@ function SingleArticle() {
   const { article_id } = useParams();
 
   useEffect(() => {
+    setLoadingSingleArticle(true);
     getArticleById(article_id).then((retreivedArticle) => {
       setSingleArticle(retreivedArticle);
       setLoadingSingleArticle(false);

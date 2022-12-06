@@ -9,6 +9,7 @@ function Comments() {
   const { article_id } = useParams();
 
   useEffect(() => {
+    setLoadingComments(true);
     getComments(article_id).then((retreivedComments) => {
       setComments(retreivedComments);
       setLoadingComments(false);
