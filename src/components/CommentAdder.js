@@ -49,7 +49,7 @@ function CommentAdder({ setComments, article_id }) {
         <br />
         <button>Add</button>
       </form>
-      <p>{commentStatus}</p>
+      {commentStatus.length ? (<p>{commentStatus}</p>) : (null)}
     </div>
   );
 }
