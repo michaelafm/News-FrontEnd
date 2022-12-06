@@ -109,16 +109,23 @@ ul {
 display: flex;
 flex-direction: column;
 align-items: center;
+height: 100%;
+width: 100%;
 }
 
 .CommentAdder_form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  height: 100%;
+  border-color: pink;
+  border-width: 5px;
+  border-style: solid;
   }
 
 #CommentAdder_newComment {
-  height: 20vh;
-  width: 100vh;
+  height: 100%;
+  width: 100%;
 }
 
