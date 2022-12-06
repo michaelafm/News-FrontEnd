@@ -9,14 +9,14 @@ function CommentAdder({ setComments, article_id }) {
     body: "",
   });
   const [postingComment, setPostingComment] = useState(false);
-  const [commentStatus, setCommentStatus] = useState('');
+  const [commentStatus, setCommentStatus] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!newComment.body.length) {
-      alert("Please add text before commenting");
-    } else if (!userValue.user.username) {
+    if (!userValue.user.username) {
       alert("Please login to comment");
+    } else if (!newComment.body.length) {
+      alert("Please add text before commenting");
     } else {
       setPostingComment(true);
       postComment(newComment, article_id).then((commentFromApi) => {
@@ -27,7 +27,7 @@ function CommentAdder({ setComments, article_id }) {
           return newComments;
         });
         setPostingComment(false);
-        setCommentStatus('Your comment has been posted!')
+        setCommentStatus("Your comment has been posted!");
       });
     }
   };
