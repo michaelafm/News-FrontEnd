@@ -21,3 +21,21 @@ export const getComments = (article_id) => {
     return res.data.comments;
   });
 };
+
+export const patchArticle = (article_id, vote) => {
+  let patchBody = {}
+  if (vote === 'Vote') {
+    patchBody.inc_votes = 1;
+  } else if (vote === 'Unvote') {
+    patchBody.inc_votes = -1;
+  }
+  return myApi.patch(`/articles/${article_id}`, patchBody).then((res) => {
+    return res.data.updatedArticle;
+  });
+};
+
+export const getUsers = () => {
+  return myApi.get(`/users`).then((res) => {
+    return res.data.users;
+  })
+}

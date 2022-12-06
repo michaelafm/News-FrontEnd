@@ -16,6 +16,7 @@ function Comments() {
     });
   }, [article_id]);
 
+
   return loadingComments ? (
     <p>...loading comments</p>
   ) : (
