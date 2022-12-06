@@ -23,7 +23,6 @@ function Comments() {
         return (
           <li key={comment.comment_id} className="Comments_comment">
             <h3>{comment.author}</h3>
-            <p>{comment.article_id}</p>
             <p>{comment.body}</p>
             <p>Created: {new Date(comment.created_at).toGMTString()}</p>
             <p>Votes: {comment.votes}</p>
