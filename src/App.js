@@ -5,7 +5,7 @@ import Articles from "./components/Articles";
 import SingleArticle from "./components/SingleArticle";
 import Users from "./components/Users";
 import UserIcon from "./components/UserIcon";
-import { Grommet, Box, Button } from "grommet";
+import { Grommet, Box, CheckBox } from "grommet";
 import { grommet } from "grommet";
 import { useState } from "react";
 import { UserProvider } from "./contexts/User";
@@ -13,6 +13,7 @@ import { UserProvider } from "./contexts/User";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
+
   return (
     <UserProvider>
     <Grommet
@@ -24,17 +25,18 @@ function App() {
       <Box pad="large">
         <Header />
         <UserIcon />
-        <Button
-          label="Toggle Theme"
-          primaryalignSelf="center"
-          margin="small"
-          onClick={() => setDarkMode(!darkMode)}
+        <CheckBox
+          label={darkMode ? "Light Mode" : "Dark Mode"}
+          checked={darkMode}
+          onChange={(event) => setDarkMode(event.target.checked)}
+          toggle
         />
         <Nav />
         <Routes>
           <Route path="/" element={<Articles />} />
           <Route path="/article/:article_id" element={<SingleArticle />} />
           <Route path="/users" element={<Users />} />
+          <Route path="/:topic" element={<Articles />} />
         </Routes>
       </Box>
     </Grommet>
