@@ -1,4 +1,8 @@
-
+*{
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
 
 body {
   margin: 0;
@@ -18,6 +22,10 @@ ul {
   list-style: none;
   padding-left: 0;
 
+}
+
+h2 {
+  text-transform: capitalize;
 }
 
 .Header {
@@ -55,6 +63,25 @@ ul {
   border-color: blue;
   border-width: 5px;
   border-style: solid;
+}
+
+.Nav_list {
+  display: flex;
+  flex-direction: row;
+  border-color: blue;
+  border-width: 5px;
+  border-style: solid;
+  align-items: center;
+}
+
+.Nav_list ul {
+  align-content: center;
+}
+
+.Nav_list li {
+  padding: 0.5em;
+  margin: 0.5em;
+  text-transform: capitalize;
 }
 
 .Comments {

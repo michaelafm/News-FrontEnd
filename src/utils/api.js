@@ -4,8 +4,8 @@ const myApi = axios.create({
   baseURL: "https://real-gray-elephant-ring.cyclic.app/api",
 });
 
-export const getArticles = () => {
-  return myApi.get(`/articles`).then((res) => {
+export const getArticles = (topic) => {
+  return myApi.get(`/articles`, {params: {topic}}).then((res) => {
     return res.data.articles;
   });
 };
@@ -45,3 +45,10 @@ export const postComment = (newComment, article_id) => {
     return res.data.comment;
   })
 }
+
+export const getTopics = () => {
+  return myApi.get(`/topics`).then((res) => {
+    return res.data.topics;
+  })
+}
+
