@@ -8,7 +8,7 @@ function Nav() {
   useEffect(() => {
     getTopics().then((topics) => {
       setTopics(topics);
-    });
+    })
   }, []);
 
   return (
@@ -22,7 +22,7 @@ function Nav() {
         {topics.map((topic) => {
           return (
             <li key={topic.slug}>
-              <Link to={`/${topic.slug}`}>{topic.slug}</Link>
+              <Link to={`/articles/${topic.slug}`}>{topic.slug}</Link>
             </li>
           );
         })}

@@ -9,7 +9,7 @@ export const getArticles = (sort_by, order, topic) => {
     .get(`/articles`, { params: { sort_by, order, topic } })
     .then((res) => {
       return res.data.articles;
-    });
+    })
 };
 
 export const getArticleById = (article_id) => {

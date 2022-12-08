@@ -14,7 +14,6 @@ function UserIcon() {
         src={userValue.user.avatar_url}
         alt={`user icon of ${userValue.user.username}`}
       ></img>
-      <br />
       <button
         id="orderButton"
         type="button"

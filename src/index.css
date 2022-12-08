@@ -176,6 +176,10 @@ width: 100%;
   border-style: solid;
 }
 
+.CommentAdder_error {
+  color: red;
+}
+
 .SortByQuery_queries {
   font-size: 1em;
 }
