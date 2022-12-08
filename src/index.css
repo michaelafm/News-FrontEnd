@@ -128,8 +128,27 @@ h2 {
   border-style: solid;
 }
 
-.User_login_icon {
+.Header_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: space-around;
+  align-items: flex-end;
+}
+
+.UserIcon_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.UserIcon_login {
+ 
+}
+
+.UserIcon_img {
   width: 40px;
+  padding-left: 4.5rem
 }
 
 .CommentAdder {
@@ -150,6 +169,16 @@ width: 100%;
   border-width: 5px;
   border-style: solid;
   }
+
+.CommentAdder_form textarea {
+  border-color: pink;
+  border-width: 5px;
+  border-style: solid;
+}
+
+.SortByQuery_queries {
+  font-size: 1em;
+}
 
 #CommentAdder_newComment {
   height: 100%;

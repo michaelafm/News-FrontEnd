@@ -12,29 +12,27 @@ function Nav() {
   }, []);
 
   return (
-   
-      <nav className="Nav">
-        <ul className="Nav_list">
-          <li>
-            <Link to="/">
-              <p>All articles</p>
-            </Link>
-          </li>
-          {topics.map((topic) => {
-            return (
-                <li key={topic.slug}>
-              <Link to={`/${topic.slug}`}>
-                {topic.slug}
-              </Link>
-              </li>
-            );
-          })}<li>
+    <nav className="Nav">
+      <ul className="Nav_list">
+        <li>
+          <Link to="/">
+            <p>All articles</p>
+          </Link>
+        </li>
+        {topics.map((topic) => {
+          return (
+            <li key={topic.slug}>
+              <Link to={`/${topic.slug}`}>{topic.slug}</Link>
+            </li>
+          );
+        })}
+        <li>
           <Link to="/users">
             <p>Users</p>
           </Link>
         </li>
-        </ul>
-      </nav>
+      </ul>
+    </nav>
   );
 }
 
