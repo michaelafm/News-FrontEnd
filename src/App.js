@@ -22,14 +22,16 @@ function App() {
         themeMode={darkMode ? "dark" : "light"}
       >
         <Box pad="large">
+          <div className="Header_container">
           <Header />
-          <UserIcon />
           <CheckBox
             label={darkMode ? "Light Mode" : "Dark Mode"}
             checked={darkMode}
             onChange={(event) => setDarkMode(event.target.checked)}
             toggle
           />
+          <UserIcon />
+          </div>
           <Nav />
           <Routes>
             <Route path="/" element={<Articles />} />
