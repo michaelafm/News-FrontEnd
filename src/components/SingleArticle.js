@@ -47,7 +47,7 @@ function SingleArticle() {
   if (err) return <p>{err}</p>;
 
   return loadingSingleArticle ? (
-    <p>...loading articles</p>
+    <p>...loading article</p>
   ) : (
     <main>
       <Card className="SingleArticle" pad="medium">

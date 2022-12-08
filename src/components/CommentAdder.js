@@ -2,14 +2,14 @@ import { useState, useContext } from "react";
 import { postComment } from "../utils/api";
 import { UserContext } from "../contexts/User";
 
-function CommentAdder({ setComments, article_id }) {
+function CommentAdder({ setComments, article_id, setDeletedComment }) {
   const userValue = useContext(UserContext);
   const [newComment, setNewComment] = useState({
     username: userValue.user.username,
     body: "",
   });
   const [postingComment, setPostingComment] = useState(false);
-  const [commentStatus, setCommentStatus] = useState("");
+  const [commentStatus, setCommentStatus] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,7 +27,8 @@ function CommentAdder({ setComments, article_id }) {
           return newComments;
         });
         setPostingComment(false);
-        setCommentStatus("Your comment has been posted!");
+        setDeletedComment(false);
+        setCommentStatus(true);
       });
     }
   };
@@ -49,7 +50,7 @@ function CommentAdder({ setComments, article_id }) {
         <br />
         <button>Add</button>
       </form>
-      {commentStatus.length ? (<p>{commentStatus}</p>) : (null)}
+      {commentStatus ? <p>Your comment has been post</p> : null}
     </div>
   );
 }

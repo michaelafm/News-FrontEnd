@@ -10,36 +10,35 @@ import { grommet } from "grommet";
 import { useState } from "react";
 import { UserProvider } from "./contexts/User";
 
-
 function App() {
   const [darkMode, setDarkMode] = useState(false);
 
   return (
     <UserProvider>
-    <Grommet
-      className="App"
-      full
-      theme={grommet}
-      themeMode={darkMode ? "dark" : "light"}
-    >
-      <Box pad="large">
-        <Header />
-        <UserIcon />
-        <CheckBox
-          label={darkMode ? "Light Mode" : "Dark Mode"}
-          checked={darkMode}
-          onChange={(event) => setDarkMode(event.target.checked)}
-          toggle
-        />
-        <Nav />
-        <Routes>
-          <Route path="/" element={<Articles />} />
-          <Route path="/article/:article_id" element={<SingleArticle />} />
-          <Route path="/users" element={<Users />} />
-          <Route path="/:topic" element={<Articles />} />
-        </Routes>
-      </Box>
-    </Grommet>
+      <Grommet
+        className="App"
+        full
+        theme={grommet}
+        themeMode={darkMode ? "dark" : "light"}
+      >
+        <Box pad="large">
+          <Header />
+          <UserIcon />
+          <CheckBox
+            label={darkMode ? "Light Mode" : "Dark Mode"}
+            checked={darkMode}
+            onChange={(event) => setDarkMode(event.target.checked)}
+            toggle
+          />
+          <Nav />
+          <Routes>
+            <Route path="/" element={<Articles />} />
+            <Route path="/article/:article_id" element={<SingleArticle />} />
+            <Route path="/users" element={<Users />} />
+            <Route path="/:topic" element={<Articles />} />
+          </Routes>
+        </Box>
+      </Grommet>
     </UserProvider>
   );
 }
