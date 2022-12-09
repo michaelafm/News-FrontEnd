@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <Link to="/" style={{ textDecoration: 'none' }}>
+    <Link to="/" >
 <Heading
 size='large'
 color='#263743'>

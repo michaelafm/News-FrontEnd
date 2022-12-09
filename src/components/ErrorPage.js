@@ -7,7 +7,7 @@ function ErrorPage({ message, response }) {
         <h3>
           {message}: {response}
         </h3>
-        <Link to="/" style={{ textDecoration: 'none' }}>Go Home</Link>
+        <Link to="/" >Go Home</Link>
       </div>
     );
   }
@@ -15,7 +15,7 @@ function ErrorPage({ message, response }) {
   return ( 
     <div>
       <h3>Request failed with status code 404: Route not found</h3>
-      <Link to="/" style={{ textDecoration: 'none' }}>Go Home</Link>
+      <Link to="/" >Go Home</Link>
     </div>
   );
 }
