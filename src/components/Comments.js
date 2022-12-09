@@ -42,7 +42,7 @@ function Comments() {
       />
       {deletingComment ? <p>...deleting comment</p> : null}
       {deletedComment ? <p>Your comment has been deleted</p> : null}
-      <h3>Comments</h3>
+      <h3 className="Comments_header">Comments</h3>
       <ul className="Comments">
         {comments.map((comment) => {
           return (
@@ -51,6 +51,7 @@ function Comments() {
               <p>{comment.body}</p>
               <p>Created: {new Date(comment.created_at).toGMTString()}</p>
               <p>Votes: {comment.votes}</p>
+              <div className="Comments_comment_button_container">
               <button
                 id="Comments_comment_voteButton"
                 type="button"
@@ -69,6 +70,7 @@ function Comments() {
                   Delete comment
                 </button>
               ) : null}
+              </div>
             </li>
           );
         })}

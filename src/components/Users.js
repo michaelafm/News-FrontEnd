@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../contexts/User";
 import { getUsers } from "../utils/api";
 import { useNavigate } from "react-router-dom";
+import { Card } from "grommet";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
@@ -27,10 +28,11 @@ const Users = () => {
   ) : (
     <main className="Users">
       <h1>Users</h1>
-      <ul className="Users_list">
+      <ul className="Users_list_container">
         {users.map((user) => {
           return (
-            <li className="Users_Card" key={user.username}>
+            <Card pad="medium" key={user.username}>
+            <li className="Users_Card">
               <h3>{user.username}</h3>
               <img
                 className="Users_user_avatar"
@@ -41,6 +43,7 @@ const Users = () => {
                 Login as this user
               </button>
             </li>
+            </Card>
           );
         })}
       </ul>

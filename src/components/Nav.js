@@ -13,7 +13,7 @@ function Nav() {
 
   return (
     <nav className="Nav">
-      <ul className="Nav_list">
+      <ul className="Nav_list_container">
         <li>
           <Link to="/" >
             <p>All articles</p>
