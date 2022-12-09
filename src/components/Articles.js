@@ -12,36 +12,46 @@ function Articles() {
   let [searchParams, setSearchParams] = useSearchParams();
   const [error, setError] = useState(null);
 
-
   let sort_by = searchParams.get("sort_by");
   let order = searchParams.get("order");
 
   useEffect(() => {
     setError(null);
     setLoadingArticles(true);
-    getArticles(sort_by, order, topic).then((retreivedArticles) => {
-      setArticles(retreivedArticles);
-      setLoadingArticles(false);
-    }).catch((err) => {
-      setError({ err })
-    })
+    getArticles(sort_by, order, topic)
+      .then((retreivedArticles) => {
+        setArticles(retreivedArticles);
+        setLoadingArticles(false);
+      })
+      .catch((err) => {
+        setError({ err });
+      });
   }, [sort_by, order, topic]);
 
   if (error) {
-    return <ErrorPage message={error.err.message} response={error.err.response.data.msg}/>;
+    return (
+      <ErrorPage
+        message={error.err.message}
+        response={error.err.response.data.msg}
+      />
+    );
   }
 
   return (
     <main>
-      <SortByQuery
-        setSearchParams={setSearchParams}
-        searchParams={searchParams}
-      />
       {loadingArticles ? (
         <p>...loading articles</p>
       ) : (
         <div className="Articles">
-          {topic ? <h2>{topic} articles</h2> : null}
+          <div className="Articles_header_container">
+            {topic ? (
+              <h2 >{topic} articles</h2>
+            ) : <h2>All articles</h2>}
+            <SortByQuery
+              setSearchParams={setSearchParams}
+              searchParams={searchParams}
+            />
+          </div>
           <ul className="Articles_container">
             {articles.map((article) => {
               return (
@@ -68,7 +78,7 @@ function Articles() {
         </div>
       )}
     </main>
-  )
+  );
 }
 
 export default Articles;

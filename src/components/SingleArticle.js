@@ -61,11 +61,14 @@ function SingleArticle() {
   ) : (
     <main>
       <Card className="SingleArticle" pad="medium">
-        <h3>{singleArticle.title}</h3>
+        <h3 className="SingleArticle_header">{singleArticle.title}</h3>
+        <p className="SingleArticle_author">By {singleArticle.author} </p>
+        <div className="SingleArticle_body">
         <p>{singleArticle.body}</p>
-        <p>Written by: {singleArticle.author} </p>
-        <p>Topic: {singleArticle.topic}</p>
+        <div className="SingleArticle_details_container">
         <p>Created: {new Date(singleArticle.created_at).toGMTString()}</p>
+        <p>Topic: {singleArticle.topic}</p>
+        <p>Total comments: {singleArticle.comment_count}</p>
         <p>Votes: {singleArticle.votes}</p>
         {userValue.user.username ? ( <button
           id="SingleArticle_votes_voteButton"
@@ -76,7 +79,8 @@ function SingleArticle() {
         >
           {vote}
         </button>) : (<Link to="/users"><p className="SingleArticle_vote_error">Log in to vote</p></Link>)}
-        <p>Total comments: {singleArticle.comment_count}</p>
+        </div>
+        </div>
       </Card>
       <Card>
         <Comments />

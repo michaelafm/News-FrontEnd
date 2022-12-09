@@ -6,7 +6,7 @@ function Header() {
     <Link to="/" >
 <Heading
 size='large'
-color='#263743'>
+color='#3b5a74'>
   NC News
 </Heading>
 </Link>
