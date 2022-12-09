@@ -4,12 +4,16 @@ import { useParams } from "react-router-dom";
 import { getArticleById, patchArticle } from "../utils/api";
 import { Card } from "grommet";
 import Comments from "./Comments";
+import ErrorPage from "./ErrorPage";
+import { Link } from "react-router-dom";
+
 
 function SingleArticle() {
   const [singleArticle, setSingleArticle] = useState({});
   const [loadingSingleArticle, setLoadingSingleArticle] = useState(true);
-  const [err, setErr] = useState(null);
+  const [articleVoteError, setArticleVoteError] = useState(null);
   const [vote, setVote] = useState("Vote");
+  const [error, setError] = useState(null);
 
   const { article_id } = useParams();
   const userValue = useContext(UserContext);
@@ -19,32 +23,38 @@ function SingleArticle() {
     getArticleById(article_id).then((retreivedArticle) => {
       setSingleArticle(retreivedArticle);
       setLoadingSingleArticle(false);
+    }).catch((err) => {
+      setError({ err })
     });
   }, [article_id]);
 
   function handleArticleVote(article_id, vote) {
     if (vote === "Vote" && userValue.user.username) {
       setSingleArticle({ ...singleArticle, votes: singleArticle.votes + 1 });
-      setErr(null);
+      setArticleVoteError(null);
       setVote("Unvote");
       patchArticle(article_id, vote).catch((err) => {
         setSingleArticle({ ...singleArticle, votes: singleArticle.votes - 1 });
-        setErr("Something went wrong, please try again.");
+        setArticleVoteError("Something went wrong, please try again.");
       });
     } else if (vote === "Unvote" && userValue.user.username) {
       setSingleArticle({ ...singleArticle, votes: singleArticle.votes - 1 });
-      setErr(null);
+      setArticleVoteError(null);
       setVote("Vote");
       patchArticle(article_id, vote).catch((err) => {
         setSingleArticle({ ...singleArticle, votes: singleArticle.votes + 1 });
-        setErr("Something went wrong, please try again.");
+        setArticleVoteError("Something went wrong, please try again.");
       });
     } else {
       alert("Please login to vote");
     }
   }
 
-  if (err) return <p>{err}</p>;
+  if (articleVoteError) return <p>{articleVoteError}</p>;
+
+  if (error) {
+    return <ErrorPage message={error.err.message} response={error.err.response.data.msg}/>;
+  }
 
   return loadingSingleArticle ? (
     <p>...loading article</p>
@@ -57,7 +67,7 @@ function SingleArticle() {
         <p>Topic: {singleArticle.topic}</p>
         <p>Created: {new Date(singleArticle.created_at).toGMTString()}</p>
         <p>Votes: {singleArticle.votes}</p>
-        <button
+        {userValue.user.username ? ( <button
           id="SingleArticle_votes_voteButton"
           type="button"
           onClick={() => {
@@ -65,7 +75,7 @@ function SingleArticle() {
           }}
         >
           {vote}
-        </button>
+        </button>) : (<Link to="/users"><p className="SingleArticle_vote_error">Log in to vote</p></Link>)}
         <p>Total comments: {singleArticle.comment_count}</p>
       </Card>
       <Card>

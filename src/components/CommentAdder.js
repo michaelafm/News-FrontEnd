@@ -1,6 +1,8 @@
 import { useState, useContext } from "react";
 import { postComment } from "../utils/api";
 import { UserContext } from "../contexts/User";
+import { Link } from "react-router-dom";
+
 
 function CommentAdder({ setComments, article_id, setDeletedComment }) {
   const userValue = useContext(UserContext);
@@ -10,13 +12,14 @@ function CommentAdder({ setComments, article_id, setDeletedComment }) {
   });
   const [postingComment, setPostingComment] = useState(false);
   const [commentStatus, setCommentStatus] = useState(false);
+  const [commentEmpty, setCommentEmpty] = useState(false);
 
   const handleSubmit = (e) => {
+    setCommentEmpty(false);
     e.preventDefault();
-    if (!userValue.user.username) {
-      alert("Please login to comment");
-    } else if (!newComment.body.length) {
-      alert("Please add text before commenting");
+    if (!newComment.body.length) {
+      setCommentEmpty(true);
+      return
     } else {
       setPostingComment(true);
       postComment(newComment, article_id).then((commentFromApi) => {
@@ -39,7 +42,6 @@ function CommentAdder({ setComments, article_id, setDeletedComment }) {
     <div className="CommentAdder">
       <form className="CommentAdder_form" onSubmit={handleSubmit}>
         <label htmlFor="newComment">Add a comment</label>
-        <br />
         <textarea
           id="CommentAdder_newComment"
           value={newComment.body}
@@ -47,10 +49,10 @@ function CommentAdder({ setComments, article_id, setDeletedComment }) {
             setNewComment({ ...newComment, body: e.target.value })
           }
         ></textarea>
-        <br />
-        <button>Add</button>
+        {commentEmpty ? <p className="CommentAdder_error">Please add text to comment</p> : (null)}
+        {userValue.user.username ? (<button>Add</button>) : (<Link to="/users"><p className="CommentAdder_error">Log in to comment</p></Link>)}
       </form>
-      {commentStatus ? <p>Your comment has been post</p> : null}
+      {commentStatus ? <p>Your comment has been posted!</p> : null}
     </div>
   );
 }

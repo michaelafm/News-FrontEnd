@@ -9,6 +9,7 @@ import { Grommet, Box, CheckBox } from "grommet";
 import { grommet } from "grommet";
 import { useState } from "react";
 import { UserProvider } from "./contexts/User";
+import ErrorPage from "./components/ErrorPage";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -32,12 +33,13 @@ function App() {
           />
           <UserIcon />
           </div>
-          <Nav />
+          <Nav/>
           <Routes>
             <Route path="/" element={<Articles />} />
             <Route path="/article/:article_id" element={<SingleArticle />} />
             <Route path="/users" element={<Users />} />
-            <Route path="/:topic" element={<Articles />} />
+            <Route path="/articles/:topic" element={<Articles />} />
+            <Route path="*" element={<ErrorPage />} />
           </Routes>
         </Box>
       </Grommet>

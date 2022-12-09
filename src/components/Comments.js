@@ -58,7 +58,6 @@ function Comments() {
               >
                 Vote
               </button>
-              <br />
               {userValue.user.username === comment.author && deletingComment === false ? (
                 <button
                   id="Comments_comment_deleteButton"
