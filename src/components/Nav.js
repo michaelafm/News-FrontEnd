@@ -15,19 +15,19 @@ function Nav() {
     <nav className="Nav">
       <ul className="Nav_list">
         <li>
-          <Link to="/">
+          <Link to="/" style={{ textDecoration: 'none' }}>
             <p>All articles</p>
           </Link>
         </li>
         {topics.map((topic) => {
           return (
             <li key={topic.slug}>
-              <Link to={`/articles/${topic.slug}`}>{topic.slug}</Link>
+              <Link to={`/articles/${topic.slug}`} style={{ textDecoration: 'none' }}>{topic.slug}</Link>
             </li>
           );
         })}
         <li>
-          <Link to="/users">
+          <Link to="/users" style={{ textDecoration: 'none' }}>
             <p>Users</p>
           </Link>
         </li>

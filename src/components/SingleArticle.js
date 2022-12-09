@@ -5,6 +5,8 @@ import { getArticleById, patchArticle } from "../utils/api";
 import { Card } from "grommet";
 import Comments from "./Comments";
 import ErrorPage from "./ErrorPage";
+import { Link } from "react-router-dom";
+
 
 function SingleArticle() {
   const [singleArticle, setSingleArticle] = useState({});
@@ -65,7 +67,7 @@ function SingleArticle() {
         <p>Topic: {singleArticle.topic}</p>
         <p>Created: {new Date(singleArticle.created_at).toGMTString()}</p>
         <p>Votes: {singleArticle.votes}</p>
-        <button
+        {userValue.user.username ? ( <button
           id="SingleArticle_votes_voteButton"
           type="button"
           onClick={() => {
@@ -73,7 +75,7 @@ function SingleArticle() {
           }}
         >
           {vote}
-        </button>
+        </button>) : (<Link to="/users"><p className="SingleArticle_vote_error">Log in to vote</p></Link>)}
         <p>Total comments: {singleArticle.comment_count}</p>
       </Card>
       <Card>

@@ -27,7 +27,7 @@ function UserIcon() {
     </main>
   ) : (
     <div className="UserIcon_login">
-    <Link to="/users">
+    <Link to="/users" style={{ textDecoration: 'none' }}>
       <p>Please log in</p>
     </Link>
     </div>

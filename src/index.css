@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   border: 0;
+  background-color: #ede0c1;
 }
 
 body {
@@ -11,11 +12,28 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+}
+
+html {
+  color: "#263743";
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+button { 
+  color:white; 
+  font: old 84% 'trebuchet ms',helvetica,sans-serif; 
+  background-color:#d68579; 
+  border:1px solid; 
+  border-color:#d68579; 
+  border-radius: 5%;
+  width: 5rem;
+  height: 2rem;
 }
 
 ul {
@@ -142,10 +160,6 @@ h2 {
   justify-content: center;
 }
 
-.UserIcon_login {
- 
-}
-
 .UserIcon_img {
   width: 40px;
   padding-left: 4.5rem
@@ -177,6 +191,10 @@ width: 100%;
 }
 
 .CommentAdder_error {
+  color: red;
+}
+
+.SingleArticle_vote_error {
   color: red;
 }
 

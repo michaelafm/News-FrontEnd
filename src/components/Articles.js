@@ -48,6 +48,7 @@ function Articles() {
                 <Link
                   key={article.article_id}
                   to={`/article/${article.article_id}`}
+                  style={{ textDecoration: 'none' }}
                 >
                   <Card className="Articles_card_article" pad="medium">
                     <li className="Articles_article" key={article.article_id}>

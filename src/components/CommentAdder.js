@@ -52,7 +52,7 @@ function CommentAdder({ setComments, article_id, setDeletedComment }) {
         {commentEmpty ? <p className="CommentAdder_error">Please add text to comment</p> : (null)}
         {userValue.user.username ? (<button>Add</button>) : (<Link to="/users"><p className="CommentAdder_error">Log in to comment</p></Link>)}
       </form>
-      {commentStatus ? <p>Your comment has been post</p> : null}
+      {commentStatus ? <p>Your comment has been posted!</p> : null}
     </div>
   );
 }
