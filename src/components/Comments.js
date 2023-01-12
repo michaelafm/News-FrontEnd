@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getComments, deleteCommentById } from "../utils/api";
 import CommentAdder from "./CommentAdder";
 import { UserContext } from "../contexts/User";
+import { Button } from "react-bootstrap";
 
 function Comments() {
   const [comments, setComments] = useState([]);
@@ -52,23 +53,21 @@ function Comments() {
               <p>Created: {new Date(comment.created_at).toGMTString()}</p>
               <p>Votes: {comment.votes}</p>
               <div className="Comments_comment_button_container">
-              <button
-                id="Comments_comment_voteButton"
-                type="button"
+              <Button
+                variant="dark"
                 onClick={() => {}}
               >
                 Vote
-              </button>
+              </Button>
               {userValue.user.username === comment.author && deletingComment === false ? (
-                <button
-                  id="Comments_comment_deleteButton"
-                  type="button"
+                <Button
+                  variant="danger"
                   onClick={() => {
                     removeOnClick(comment.comment_id);
                   }}
                 >
                   Delete comment
-                </button>
+                </Button>
               ) : null}
               </div>
             </li>
