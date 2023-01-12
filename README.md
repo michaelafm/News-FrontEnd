@@ -11,12 +11,21 @@ Northcoders News is a social news aggregation, web content rating, and discussio
 
 Northcoders News has articles which are divided into topics. Each article has user curated ratings. Once a user is logged in these ratings can be up or down voted using the API, voting is restricted to one vote per article per user. Users can also add comments about an article.
 
+## Links
+
+| Description               |                     Link                      |
+| :------------------------ | :-------------------------------------------: |
+| Hosted version of project |    https://incomparable-madeleine-1cfbd3.netlify.app     |
+| Back-end API              | https://real-gray-elephant-ring.cyclic.app/api  |
+| Back-end repo             | https://github.com/michaelafm/News-BackEnd |
+| Github profile  |       https://github.com/michaelafm        |
+
 ## Back end repository
 Click this link for the hosted version of the back end NC-News project: 
-https://real-gray-elephant-ring.cyclic.app
+https://real-gray-elephant-ring.cyclic.app/api
 
 Click this link for the back end gitHub repository:
-https://github.com/michaelafm/News
+https://github.com/michaelafm/News-BackEnd
 
 
 ## Setup
@@ -24,7 +33,7 @@ https://github.com/michaelafm/News
 Before you can run this API locally, you'll first need to:
 
 ### Clone this repository to your local machine
-- You can make a local copy of the repo by running git clone <https://github.com/michaelafm/fe-nc-news.git>
+- You can make a local copy of the repo by running git clone <https://github.com/michaelafm/News-FrontEnd.git>
 - You should now be able to access this repo locally.
 
 ### Install dependencies
