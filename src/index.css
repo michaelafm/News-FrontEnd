@@ -22,10 +22,20 @@ code {
     monospace;
 }
 
-a {
-  /* color: #263743; */
-  text-decoration: none;
+.link {
+  color: black;
 }
+.link:hover {
+  color: gray;
+}
+
+.login-link {
+  color: black;
+}
+.login-link:hover {
+   color: gray;
+}
+
 
 ul {
   list-style: none;
@@ -95,13 +105,8 @@ h2, h3, h4 {
   padding: 0.2em;
 }
 
-
-.Nav_list_container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 1em;
-  text-transform: capitalize;
+.Single_Article_Card_vote-button {
+  width: 15vw;
 }
 
 
@@ -118,6 +123,10 @@ h2, h3, h4 {
 
 .Comments_comment {
   padding: 1em;
+}
+
+.Comments_comment_card {
+  padding: 1rem;
 }
 
 .Comments_comment_button_container {
@@ -197,7 +206,6 @@ h2, h3, h4 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
   width: 100%;
 }
 
@@ -206,16 +214,17 @@ h2, h3, h4 {
   flex-direction: column;
   align-items: center;
   width: 80vw;
-  height: 30vh;
   padding: 1em;
 }
 
 .CommentAdder_form textarea {
-  border-color: #b57376;
-  border-width: 1px;
+  border-color: #DCD0FF;
+  border-width: 3px;
   border-style: solid;
+  border-radius: 0.5rem;
   margin: 1em;
   font-size: 18px;
+  height: 100%;
 }
 
 

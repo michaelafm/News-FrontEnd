@@ -1,24 +1,28 @@
 import { useEffect, useState } from "react";
 import { getArticles } from "../utils/api";
-import { Link, useParams, useSearchParams, useLocation} from "react-router-dom";
-import { Card } from "grommet";
+import {
+  useParams,
+  useSearchParams,
+  useLocation,
+} from "react-router-dom";
+import { Card, Anchor } from "grommet";
 import SortByQuery from "./SortByQuery";
 import ErrorPage from "./ErrorPage";
- 
+
 function Articles() {
   const [articles, setArticles] = useState([]);
   const [loadingArticles, setLoadingArticles] = useState(true);
   const { topic } = useParams();
   let [searchParams, setSearchParams] = useSearchParams();
   const [error, setError] = useState(null);
-  const [previousLocation, setPreviousLocation] = useState('')
+  const [previousLocation, setPreviousLocation] = useState("");
   const location = useLocation();
 
   let sort_by = searchParams.get("sort_by");
   let order = searchParams.get("order");
 
   useEffect(() => {
-    setPreviousLocation(location.pathname)
+    setPreviousLocation(location.pathname);
     setError(null);
     setLoadingArticles(true);
     getArticles(sort_by, order, topic)
@@ -44,10 +48,12 @@ function Articles() {
     <main>
       <div className="Articles_header_container">
         {topic ? <h2>{topic} articles</h2> : <h2>All articles</h2>}
-        {location.pathname === previousLocation ?  (<SortByQuery
-          setSearchParams={setSearchParams}
-          searchParams={searchParams}
-        />): (null)}
+        {location.pathname === previousLocation ? (
+          <SortByQuery
+            setSearchParams={setSearchParams}
+            searchParams={searchParams}
+          />
+        ) : null}
       </div>
       {loadingArticles ? (
         <p>...loading articles</p>
@@ -56,10 +62,11 @@ function Articles() {
           <ul className="Articles_container">
             {articles.map((article) => {
               return (
-                <Link
+                <Anchor
+                  className="link"
                   key={article.article_id}
-                  to={`/article/${article.article_id}`}
-                  style={{ textDecoration: 'none' }}
+                  href={`/article/${article.article_id}`}
+                  style={{ textDecoration: "none" }}
                 >
                   <Card className="Articles_card_article" pad="medium">
                     <li className="Articles_article" key={article.article_id}>
@@ -73,7 +80,7 @@ function Articles() {
                       <p>Comment count: {article.comment_count}</p>
                     </li>
                   </Card>
-                </Link>
+                </Anchor>
               );
             })}
           </ul>

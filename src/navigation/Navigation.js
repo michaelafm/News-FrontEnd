@@ -13,38 +13,38 @@ const Navigation = () => {
   }, []);
 
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="gap-3 px-3">
       <Container>
         <Navbar.Brand href="/" as={Link} to="/">
           <h1>NC News</h1>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="/" as={Link} to="/">
-              <h4>All articles</h4>
-            </Nav.Link>
-            {topics.map((topic) => {
-              return (
-                <Nav.Link
-                  key={topic.slug}
-                  href={`/articles/${topic.slug}`}
-                  as={Link}
-                  to={`/articles/${topic.slug}`}
-                  className="Navigation_link"
-                >
-                  <h4>{topic.slug}</h4>
-                </Nav.Link>
-              );
-            })}
-            <Nav.Link
-              href="/users"
-              as={Link}
-              to="/users"
-              className="Navigation_link"
-            >
-              <h4>Users</h4>
-            </Nav.Link>
+          <Nav className="flex-grow-1 justify-content-evenly">
+              <Nav.Link href="/" as={Link} to="/">
+                <h4>All articles</h4>
+              </Nav.Link>
+              {topics.map((topic) => {
+                return (
+                  <Nav.Link
+                    key={topic.slug}
+                    href={`/articles/${topic.slug}`}
+                    as={Link}
+                    to={`/articles/${topic.slug}`}
+                    className="Navigation_link"
+                  >
+                    <h4>{topic.slug}</h4>
+                  </Nav.Link>
+                );
+              })}
+              <Nav.Link
+                href="/users"
+                as={Link}
+                to="/users"
+                className="Navigation_link"
+              >
+                <h4>Users</h4>
+              </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

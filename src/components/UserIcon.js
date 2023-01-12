@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { UserContext } from "../contexts/User";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import { Anchor } from "grommet";
 
 function UserIcon() {
   const userValue = useContext(UserContext);
@@ -16,7 +17,7 @@ function UserIcon() {
           alt={`user icon of ${userValue.user.username}`}
         ></img>
         <Button
-          variant="outline-dark"
+          variant="dark"
           onClick={() => {
             userValue.logout();
           }}
@@ -27,9 +28,9 @@ function UserIcon() {
     </main>
   ) : (
     <div className="UserIcon_login">
-      <Link to="/users">
+      <Anchor as={Link} to="/users" className="login-link">
         <p>Log in</p>
-      </Link>
+      </Anchor>
     </div>
   );
 }

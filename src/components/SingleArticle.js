@@ -2,10 +2,9 @@ import { useEffect, useState, useContext } from "react";
 import { UserContext } from "../contexts/User";
 import { useParams } from "react-router-dom";
 import { getArticleById, patchArticle } from "../utils/api";
-import { Card } from "grommet";
+import { Anchor, Card } from "grommet";
 import Comments from "./Comments";
 import ErrorPage from "./ErrorPage";
-import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
 
@@ -73,12 +72,13 @@ function SingleArticle() {
         <p>Votes: {singleArticle.votes}</p>
         {userValue.user.username ? ( <Button
           variant="dark"
+          className="Single_Article_Card_vote-button"
           onClick={() => {
             handleArticleVote(article_id, vote);
           }}
         >
           {vote}
-        </Button>) : (<Link to="/users"><p className="SingleArticle_vote_error" >Log in to vote</p></Link>)}
+        </Button>) : (<Anchor href="/users" className="login-link"><p className="SingleArticle_vote_error" >Log in to vote</p></Anchor>)}
         </div>
         </div>
       </Card>

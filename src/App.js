@@ -15,17 +15,15 @@ function App() {
   const [darkMode, setDarkMode] = useState(false);
 
   return (
-
     <Grommet
       className="App"
       full
       theme={grommet}
       themeMode={darkMode ? "dark" : "light"}
     >
-        <Box pad="large">
-          <Navigation />
-          <UserProvider>
-
+      <Box pad="large">
+        <Navigation />
+        <UserProvider>
           <div className="App_theme-login-container">
             <CheckBox
               label={darkMode ? "Light Mode" : "Dark Mode"}
@@ -42,12 +40,9 @@ function App() {
             <Route path="/articles/:topic" element={<Articles />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
-          </UserProvider>
-
-        </Box>
-
+        </UserProvider>
+      </Box>
     </Grommet>
-
   );
 }
 

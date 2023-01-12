@@ -1,8 +1,8 @@
 import { useState, useContext } from "react";
 import { postComment } from "../utils/api";
 import { UserContext } from "../contexts/User";
-import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import { Anchor } from "grommet";
 
 function CommentAdder({ setComments, article_id, setDeletedComment }) {
   const userValue = useContext(UserContext);
@@ -57,9 +57,9 @@ function CommentAdder({ setComments, article_id, setDeletedComment }) {
             Add
           </Button>
         ) : (
-          <Link to="/users">
+          <Anchor href="/users" className="login-link">
             <p className="CommentAdder_error">Log in to comment</p>
-          </Link>
+          </Anchor>
         )}
       </form>
       {commentStatus ? <p>Your comment has been posted!</p> : null}

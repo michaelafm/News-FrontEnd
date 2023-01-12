@@ -4,6 +4,7 @@ import { getComments, deleteCommentById } from "../utils/api";
 import CommentAdder from "./CommentAdder";
 import { UserContext } from "../contexts/User";
 import { Button } from "react-bootstrap";
+import { Card } from "grommet";
 
 function Comments() {
   const [comments, setComments] = useState([]);
@@ -47,7 +48,9 @@ function Comments() {
       <ul className="Comments">
         {comments.map((comment) => {
           return (
-            <li key={comment.comment_id} className="Comments_comment">
+            <div className="Comments_comment_card" key={comment.comment_id}>
+            <Card >
+            <li  className="Comments_comment">
               <h4>{comment.author}</h4>
               <p>{comment.body}</p>
               <p>Created: {new Date(comment.created_at).toGMTString()}</p>
@@ -71,6 +74,8 @@ function Comments() {
               ) : null}
               </div>
             </li>
+            </Card>
+            </div>
           );
         })}
       </ul>
