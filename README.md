@@ -15,9 +15,9 @@ Northcoders News has articles which are divided into topics. Each article has us
 
 | Description               |                     Link                      |
 | :------------------------ | :-------------------------------------------: |
-| Hosted version of project |    https://incomparable-madeleine-1cfbd3.netlify.app     |
-| Back-end API              | https://real-gray-elephant-ring.cyclic.app/api  |
-| Back-end repo             | https://github.com/michaelafm/News-BackEnd |
+| Live app (deployed version) |    https://incomparable-madeleine-1cfbd3.netlify.app     |
+| Back-end API (hosted version)              | https://real-gray-elephant-ring.cyclic.app/api  |
+| Back-end repo (GitHub)            | https://github.com/michaelafm/News-BackEnd |
 | Github profile  |       https://github.com/michaelafm        |
 
 ## Back end repository
