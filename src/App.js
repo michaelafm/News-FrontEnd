@@ -1,6 +1,4 @@
 import { Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
-import Nav from "./components/Nav";
 import Articles from "./components/Articles";
 import SingleArticle from "./components/SingleArticle";
 import Users from "./components/Users";
@@ -8,32 +6,35 @@ import UserIcon from "./components/UserIcon";
 import { Grommet, Box, CheckBox } from "grommet";
 import { grommet } from "grommet";
 import { useState } from "react";
-import { UserProvider } from "./contexts/User";
 import ErrorPage from "./components/ErrorPage";
+import Navigation from "./navigation/Navigation";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { UserProvider } from "./contexts/User";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
 
   return (
-    <UserProvider>
-      <Grommet
-        className="App"
-        full
-        theme={grommet}
-        themeMode={darkMode ? "dark" : "light"}
-      >
+
+    <Grommet
+      className="App"
+      full
+      theme={grommet}
+      themeMode={darkMode ? "dark" : "light"}
+    >
         <Box pad="large">
-          <div className="Header_container">
-          <Header />
-          <CheckBox
-            label={darkMode ? "Light Mode" : "Dark Mode"}
-            checked={darkMode}
-            onChange={(event) => setDarkMode(event.target.checked)}
-            toggle
-          />
-          <UserIcon />
+          <Navigation />
+          <UserProvider>
+
+          <div className="App_theme-login-container">
+            <CheckBox
+              label={darkMode ? "Light Mode" : "Dark Mode"}
+              checked={darkMode}
+              onChange={(event) => setDarkMode(event.target.checked)}
+              toggle
+            />
+            <UserIcon />
           </div>
-          <Nav/>
           <Routes>
             <Route path="/" element={<Articles />} />
             <Route path="/article/:article_id" element={<SingleArticle />} />
@@ -41,9 +42,12 @@ function App() {
             <Route path="/articles/:topic" element={<Articles />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
+          </UserProvider>
+
         </Box>
-      </Grommet>
-    </UserProvider>
+
+    </Grommet>
+
   );
 }
 

@@ -3,6 +3,7 @@ import { UserContext } from "../contexts/User";
 import { getUsers } from "../utils/api";
 import { useNavigate } from "react-router-dom";
 import { Card } from "grommet";
+import Button from 'react-bootstrap/Button';
 
 const Users = () => {
   const [users, setUsers] = useState([]);
@@ -39,9 +40,8 @@ const Users = () => {
                 src={user.avatar_url}
                 alt={`portrait of ${user.username}`}
               ></img>
-              <button onClick={() => handleLogin(user)}>
-                Login as this user
-              </button>
+                
+                <Button variant="dark" onClick={() => handleLogin(user)}>Login as this user</Button>
             </li>
             </Card>
           );
