@@ -8,6 +8,7 @@ import {
 import { Card, Anchor } from "grommet";
 import SortByQuery from "./SortByQuery";
 import ErrorPage from "./ErrorPage";
+import LoadingAnimation from "./LoadingAnimation";
 
 function Articles() {
   const [articles, setArticles] = useState([]);
@@ -56,7 +57,7 @@ function Articles() {
         ) : null}
       </div>
       {loadingArticles ? (
-        <p>...loading articles</p>
+        <LoadingAnimation />
       ) : (
         <div className="Articles">
           <ul className="Articles_container">

@@ -4,6 +4,7 @@ import { getUsers } from "../utils/api";
 import { useNavigate } from "react-router-dom";
 import { Card } from "grommet";
 import Button from "react-bootstrap/Button";
+import LoadingAnimation from "./LoadingAnimation";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
@@ -20,12 +21,13 @@ const Users = () => {
   }, []);
 
   function handleLogin(user) {
+    console.log(user);
     setUser(user);
     navigate(-1);
   }
 
   return loadingUsers ? (
-    <p>...loading users</p>
+    <LoadingAnimation />
   ) : (
     <main className="Users">
       <h1>Users</h1>

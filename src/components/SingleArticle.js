@@ -6,6 +6,7 @@ import { Anchor, Card } from "grommet";
 import Comments from "./Comments";
 import ErrorPage from "./ErrorPage";
 import { Button } from "react-bootstrap";
+import LoadingAnimation from "./LoadingAnimation";
 
 
 function SingleArticle() {
@@ -17,6 +18,7 @@ function SingleArticle() {
 
   const { article_id } = useParams();
   const userValue = useContext(UserContext);
+  console.log(userValue.user.username)
 
   useEffect(() => {
     setLoadingSingleArticle(true);
@@ -57,7 +59,7 @@ function SingleArticle() {
   }
 
   return loadingSingleArticle ? (
-    <p>...loading article</p>
+    <LoadingAnimation />
   ) : (
     <main>
       <Card className="SingleArticle" pad="medium">

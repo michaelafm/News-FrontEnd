@@ -1,14 +1,24 @@
-import { CheckBox } from "grommet";
+import { CheckBox, Select } from "grommet";
 import { useState } from "react";
 
 function SortByQuery({ setSearchParams, searchParams }) {
   const [orderToggle, setOrderToggle] = useState(false);
+  const [value, setValue] = useState("Date");
 
-  const handleQueryChange = (e) => {
-    e.preventDefault();
-    const selected_query = e.target.value;
+  const handleQueryChange = (option) => {
+    setValue(option);
+    const values = {
+      Date: "created_at",
+      "Comment count": "comment_count",
+      Votes: "votes",
+      Author: "author",
+      Title: "title",
+    };
+
+    const selected_query = values[option];
     searchParams.set("sort_by", selected_query);
     setSearchParams(searchParams);
+
   };
 
   const handleOrderChange = (e) => {
@@ -21,16 +31,12 @@ function SortByQuery({ setSearchParams, searchParams }) {
 
   return (
     <div>
-      <label className="SortByQuery_dropdown">
-        Sort by:
-        <select className="SortByQuery_queries" onChange={handleQueryChange}>
-          <option value="created_at">Date</option>
-          <option value="comment_count">Comment count</option>
-          <option value="votes">Votes</option>
-          <option value="author">Author</option>
-          <option value="title">Title</option>
-        </select>
-      </label>
+      <p className="SortByQuery_dropdown">Sort by:</p>
+      <Select
+        options={["Date", "Comment count", "Votes", "Author", "Title"]}
+        value={value}
+        onChange={({ option }) => handleQueryChange(option)}
+      />
       <CheckBox
         label={orderToggle ? "ascending" : "descending"}
         onChange={handleOrderChange}
