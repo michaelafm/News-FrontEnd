@@ -7,6 +7,7 @@ import Comments from "./Comments";
 import ErrorPage from "./ErrorPage";
 import { Button } from "react-bootstrap";
 import LoadingAnimation from "./LoadingAnimation";
+import { Link } from "react-router-dom";
 
 
 function SingleArticle() {
@@ -18,16 +19,17 @@ function SingleArticle() {
 
   const { article_id } = useParams();
   const userValue = useContext(UserContext);
-  console.log(userValue.user.username)
 
   useEffect(() => {
     setLoadingSingleArticle(true);
-    getArticleById(article_id).then((retreivedArticle) => {
-      setSingleArticle(retreivedArticle);
-      setLoadingSingleArticle(false);
-    }).catch((err) => {
-      setError({ err })
-    });
+    getArticleById(article_id)
+      .then((retreivedArticle) => {
+        setSingleArticle(retreivedArticle);
+        setLoadingSingleArticle(false);
+      })
+      .catch((err) => {
+        setError({ err });
+      });
   }, [article_id]);
 
   function handleArticleVote(article_id, vote) {
@@ -55,7 +57,12 @@ function SingleArticle() {
   if (articleVoteError) return <p>{articleVoteError}</p>;
 
   if (error) {
-    return <ErrorPage message={error.err.message} response={error.err.response.data.msg}/>;
+    return (
+      <ErrorPage
+        message={error.err.message}
+        response={error.err.response.data.msg}
+      />
+    );
   }
 
   return loadingSingleArticle ? (
@@ -66,22 +73,28 @@ function SingleArticle() {
         <h3 className="SingleArticle_header">{singleArticle.title}</h3>
         <p className="SingleArticle_author">By {singleArticle.author} </p>
         <div className="SingleArticle_body">
-        <p>{singleArticle.body}</p>
-        <div className="SingleArticle_details_container">
-        <p>Created: {new Date(singleArticle.created_at).toGMTString()}</p>
-        <p>Topic: {singleArticle.topic}</p>
-        <p>Total comments: {singleArticle.comment_count}</p>
-        <p>Votes: {singleArticle.votes}</p>
-        {userValue.user.username ? ( <Button
-          variant="dark"
-          className="Single_Article_Card_vote-button"
-          onClick={() => {
-            handleArticleVote(article_id, vote);
-          }}
-        >
-          {vote}
-        </Button>) : (<Anchor href="/users" className="login-link"><p className="SingleArticle_vote_error" >Log in to vote</p></Anchor>)}
-        </div>
+          <p>{singleArticle.body}</p>
+          <div className="SingleArticle_details_container">
+            <p>Created: {new Date(singleArticle.created_at).toGMTString()}</p>
+            <p>Topic: {singleArticle.topic}</p>
+            <p>Total comments: {singleArticle.comment_count}</p>
+            <p>Votes: {singleArticle.votes}</p>
+            {userValue.user.username ? (
+              <Button
+                variant="dark"
+                className="Single_Article_Card_vote-button"
+                onClick={() => {
+                  handleArticleVote(article_id, vote);
+                }}
+              >
+                {vote}
+              </Button>
+            ) : (
+              <Anchor href="/users" className="login-link" as={Link} to="/users">
+                <p className="SingleArticle_vote_error">Log in to vote</p>
+              </Anchor>
+            )}
+          </div>
         </div>
       </Card>
       <Card>

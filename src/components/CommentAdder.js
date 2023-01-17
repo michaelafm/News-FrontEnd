@@ -3,6 +3,7 @@ import { postComment } from "../utils/api";
 import { UserContext } from "../contexts/User";
 import { Button } from "react-bootstrap";
 import { Anchor } from "grommet";
+import { Link } from "react-router-dom";
 
 function CommentAdder({ setComments, article_id, setDeletedComment }) {
   const userValue = useContext(UserContext);
@@ -57,7 +58,7 @@ function CommentAdder({ setComments, article_id, setDeletedComment }) {
             Add
           </Button>
         ) : (
-          <Anchor href="/users" className="login-link">
+          <Anchor href="/users" className="login-link" as={Link} to="/users">
             <p className="CommentAdder_error">Log in to comment</p>
           </Anchor>
         )}

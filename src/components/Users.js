@@ -8,7 +8,7 @@ import LoadingAnimation from "./LoadingAnimation";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
-  const { setUser } = useContext(UserContext);
+  const { login } = useContext(UserContext);
   const [loadingUsers, setLoadingUsers] = useState(true);
   const navigate = useNavigate();
 
@@ -21,8 +21,7 @@ const Users = () => {
   }, []);
 
   function handleLogin(user) {
-    console.log(user);
-    setUser(user);
+    login(user);
     navigate(-1);
   }
 
