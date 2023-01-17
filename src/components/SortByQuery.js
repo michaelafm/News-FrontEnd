@@ -18,7 +18,6 @@ function SortByQuery({ setSearchParams, searchParams }) {
     const selected_query = values[option];
     searchParams.set("sort_by", selected_query);
     setSearchParams(searchParams);
-
   };
 
   const handleOrderChange = (e) => {
@@ -30,18 +29,22 @@ function SortByQuery({ setSearchParams, searchParams }) {
   };
 
   return (
-    <div>
-      <p className="SortByQuery_dropdown">Sort by:</p>
-      <Select
-        options={["Date", "Comment count", "Votes", "Author", "Title"]}
-        value={value}
-        onChange={({ option }) => handleQueryChange(option)}
-      />
-      <CheckBox
-        label={orderToggle ? "ascending" : "descending"}
-        onChange={handleOrderChange}
-        toggle
-      />
+    <div className="SortByQuery">
+      <div className="SortByQuery_query">
+        <p className="SortByQuery_title">Sort by:</p>
+        <Select
+          options={["Date", "Comment count", "Votes", "Author", "Title"]}
+          value={value}
+          onChange={({ option }) => handleQueryChange(option)}
+        />
+      </div>
+      <div className="SortByQuery_orderToggle">
+        <CheckBox
+          label={orderToggle ? "ascending" : "descending"}
+          onChange={handleOrderChange}
+          toggle
+        />
+      </div>
     </div>
   );
 }
