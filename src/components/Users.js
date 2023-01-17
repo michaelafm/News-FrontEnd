@@ -33,6 +33,7 @@ const Users = () => {
       <ul className="Users_list_container">
         {users.map((user) => {
           return (
+            <div className="Users_list_card">
             <Card pad="medium" key={user.username}>
               <li className="Users_Card">
                 <h3>{user.username}</h3>
@@ -47,6 +48,7 @@ const Users = () => {
                 </Button>
               </li>
             </Card>
+            </div>
           );
         })}
       </ul>
