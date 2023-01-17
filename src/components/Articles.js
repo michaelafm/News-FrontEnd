@@ -1,10 +1,6 @@
 import { useEffect, useState } from "react";
 import { getArticles } from "../utils/api";
-import {
-  useParams,
-  useSearchParams,
-  useLocation,
-} from "react-router-dom";
+import { useParams, useSearchParams, useLocation } from "react-router-dom";
 import { Card, Anchor } from "grommet";
 import SortByQuery from "./SortByQuery";
 import ErrorPage from "./ErrorPage";
@@ -64,27 +60,28 @@ function Articles() {
           <ul className="Articles_container">
             {articles.map((article) => {
               return (
-                <Anchor
-                  className="link"
-                  key={article.article_id}
-                  href={`/article/${article.article_id}`}
-                  as={Link}
-                  to={`/article/${article.article_id}`}
-                  style={{ textDecoration: "none" }}
-                >
-                  <Card className="Articles_card_article" pad="medium">
-                    <li className="Articles_article" key={article.article_id}>
-                      <h3>Title: {article.title}</h3>
-                      <p>Author: {article.author}</p>
-                      <p>
-                        Created: {new Date(article.created_at).toGMTString()}
-                      </p>
-                      <p>Topic: {article.topic}</p>
-                      <p>Votes: {article.votes}</p>
-                      <p>Comment count: {article.comment_count}</p>
-                    </li>
-                  </Card>
-                </Anchor>
+                <div className="Articles_article" key={article.article_id}>
+                  <Anchor
+                    className="link"
+                    href={`/article/${article.article_id}`}
+                    as={Link}
+                    to={`/article/${article.article_id}`}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <Card className="Articles_article_card" pad="medium">
+                      <li>
+                        <h3>Title: {article.title}</h3>
+                        <p>Author: {article.author}</p>
+                        <p>
+                          Created: {new Date(article.created_at).toGMTString()}
+                        </p>
+                        <p>Topic: {article.topic}</p>
+                        <p>Votes: {article.votes}</p>
+                        <p>Comment count: {article.comment_count}</p>
+                      </li>
+                    </Card>
+                  </Anchor>
+                </div>
               );
             })}
           </ul>
