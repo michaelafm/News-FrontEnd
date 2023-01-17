@@ -8,6 +8,8 @@ import {
 import { Card, Anchor } from "grommet";
 import SortByQuery from "./SortByQuery";
 import ErrorPage from "./ErrorPage";
+import LoadingAnimation from "./LoadingAnimation";
+import { Link } from "react-router-dom";
 
 function Articles() {
   const [articles, setArticles] = useState([]);
@@ -56,7 +58,7 @@ function Articles() {
         ) : null}
       </div>
       {loadingArticles ? (
-        <p>...loading articles</p>
+        <LoadingAnimation />
       ) : (
         <div className="Articles">
           <ul className="Articles_container">
@@ -66,6 +68,8 @@ function Articles() {
                   className="link"
                   key={article.article_id}
                   href={`/article/${article.article_id}`}
+                  as={Link}
+                  to={`/article/${article.article_id}`}
                   style={{ textDecoration: "none" }}
                 >
                   <Card className="Articles_card_article" pad="medium">

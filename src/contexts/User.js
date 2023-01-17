@@ -10,11 +10,11 @@ export const UserProvider = ({ children }) => {
     };
 
     const login = (user) => {
-        //api logic here
+        setUser(user)
     }
 
     return (
-    <UserContext.Provider value={{ user, setUser, logout, login}}>{children}</UserContext.Provider>
+    <UserContext.Provider value={{ user, logout, login}}>{children}</UserContext.Provider>
     );
 };
 

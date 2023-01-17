@@ -4,10 +4,11 @@ import { getUsers } from "../utils/api";
 import { useNavigate } from "react-router-dom";
 import { Card } from "grommet";
 import Button from "react-bootstrap/Button";
+import LoadingAnimation from "./LoadingAnimation";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
-  const { setUser } = useContext(UserContext);
+  const { login } = useContext(UserContext);
   const [loadingUsers, setLoadingUsers] = useState(true);
   const navigate = useNavigate();
 
@@ -20,12 +21,12 @@ const Users = () => {
   }, []);
 
   function handleLogin(user) {
-    setUser(user);
+    login(user);
     navigate(-1);
   }
 
   return loadingUsers ? (
-    <p>...loading users</p>
+    <LoadingAnimation />
   ) : (
     <main className="Users">
       <h1>Users</h1>

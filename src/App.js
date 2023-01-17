@@ -21,9 +21,9 @@ function App() {
       theme={grommet}
       themeMode={darkMode ? "dark" : "light"}
     >
-      <Box pad="large">
-        <Navigation />
-        <UserProvider>
+      <UserProvider>
+        <Box pad="large">
+          <Navigation />
           <div className="App_theme-login-container">
             <CheckBox
               label={darkMode ? "Light Mode" : "Dark Mode"}
@@ -40,8 +40,8 @@ function App() {
             <Route path="/articles/:topic" element={<Articles />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
-        </UserProvider>
-      </Box>
+        </Box>
+      </UserProvider>
     </Grommet>
   );
 }
