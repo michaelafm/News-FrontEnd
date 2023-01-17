@@ -9,7 +9,6 @@ import { Button } from "react-bootstrap";
 import LoadingAnimation from "./LoadingAnimation";
 import { Link } from "react-router-dom";
 
-
 function SingleArticle() {
   const [singleArticle, setSingleArticle] = useState({});
   const [loadingSingleArticle, setLoadingSingleArticle] = useState(true);
@@ -90,7 +89,12 @@ function SingleArticle() {
                 {vote}
               </Button>
             ) : (
-              <Anchor href="/users" className="login-link" as={Link} to="/users">
+              <Anchor
+                href="/users"
+                className="login-link"
+                as={Link}
+                to="/users"
+              >
                 <p className="SingleArticle_vote_error">Log in to vote</p>
               </Anchor>
             )}

@@ -5,6 +5,7 @@ import CommentAdder from "./CommentAdder";
 import { UserContext } from "../contexts/User";
 import { Button } from "react-bootstrap";
 import { Card } from "grommet";
+import LoadingAnimation from "./LoadingAnimation";
 
 function Comments() {
   const [comments, setComments] = useState([]);
@@ -34,7 +35,7 @@ function Comments() {
   }
 
   return loadingComments ? (
-    <p>...loading comments</p>
+    <LoadingAnimation />
   ) : (
     <div className="Comments">
       <CommentAdder
@@ -42,8 +43,8 @@ function Comments() {
         article_id={article_id}
         setDeletedComment={setDeletedComment}
       />
-      {deletingComment ? <p>...deleting comment</p> : null}
-      {deletedComment ? <p>Your comment has been deleted</p> : null}
+      {deletingComment ? <p className="Comments_commentStatus">...deleting comment</p> : null}
+      {deletedComment ? <p className="Comments_commentStatus">Your comment has been deleted</p> : null}
       <h3 className="Comments_header">Comments</h3>
       <ul className="Comments">
         {comments.map((comment) => {

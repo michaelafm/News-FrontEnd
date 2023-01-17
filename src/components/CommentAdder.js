@@ -38,7 +38,7 @@ function CommentAdder({ setComments, article_id, setDeletedComment }) {
   };
 
   return postingComment ? (
-    <p>...posting comment</p>
+    <p className="Comments_commentStatus">...posting comment</p>
   ) : (
     <div className="CommentAdder">
       <form className="CommentAdder_form" onSubmit={handleSubmit}>
@@ -63,7 +63,7 @@ function CommentAdder({ setComments, article_id, setDeletedComment }) {
           </Anchor>
         )}
       </form>
-      {commentStatus ? <p>Your comment has been posted!</p> : null}
+      {commentStatus ? <p className="Comments_commentStatus">Your comment has been posted!</p> : null}
     </div>
   );
 }
