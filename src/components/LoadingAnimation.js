@@ -1,5 +1,5 @@
 import React from "react";
-// import animationData from '../lotties/98635-loading.json';
+import { Spinner } from "grommet";
 
 const LoadingAnimation = () => {
   // const defaultOptions = {
@@ -12,12 +12,10 @@ const LoadingAnimation = () => {
   // };
 
   return (
-    <div>
-      {/* <Lottie
-        options={defaultOptions}
-        height={400}
-        width={400}
-        /> */}
+    <div className="LoadingAnimation">
+      <Spinner
+      size="xlarge"
+        />
     </div>
   );
 };
