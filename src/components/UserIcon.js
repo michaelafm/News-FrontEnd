@@ -8,16 +8,19 @@ function UserIcon() {
   const userValue = useContext(UserContext);
 
   return userValue.user.username ? (
-    <main>
-      <div className="UserIcon_container">
-        <p>Logged in as {userValue.user.username}</p>
+    <div className="UserIcon_container">
+      <p>{userValue.user.username}</p>
+      <div className="UserIcon_holder">
         <img
           className="UserIcon_img"
           src={userValue.user.avatar_url}
           alt={`user icon of ${userValue.user.username}`}
         ></img>
+      </div>
+      <div className="UserIcon_buttonContainer">
         <Button
-          variant="dark"
+          size="sm"
+          variant="outline-light"
           onClick={() => {
             userValue.logout();
           }}
@@ -25,7 +28,7 @@ function UserIcon() {
           Log-out
         </Button>
       </div>
-    </main>
+    </div>
   ) : (
     <div className="UserIcon_login">
       <Anchor as={Link} to="/users" className="login-link">
