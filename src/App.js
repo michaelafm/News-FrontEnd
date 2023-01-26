@@ -2,7 +2,6 @@ import { Routes, Route } from "react-router-dom";
 import Articles from "./components/Articles";
 import SingleArticle from "./components/SingleArticle";
 import Users from "./components/Users";
-import UserIcon from "./components/UserIcon";
 import { Grommet, Box, CheckBox } from "grommet";
 import { grommet } from "grommet";
 import { useState } from "react";
@@ -24,14 +23,13 @@ function App() {
       <UserProvider>
         <Box pad="large">
           <Navigation />
-          <div className="App_theme-login-container">
+          <div className="App_theme-container">
             <CheckBox
               label={darkMode ? "Light Mode" : "Dark Mode"}
               checked={darkMode}
               onChange={(event) => setDarkMode(event.target.checked)}
               toggle
             />
-            <UserIcon />
           </div>
           <Routes>
             <Route path="/" element={<Articles />} />

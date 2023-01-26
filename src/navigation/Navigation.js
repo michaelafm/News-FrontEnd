@@ -2,6 +2,7 @@ import { Navbar, Nav, Container } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { getTopics } from "../utils/api";
 import { Link } from "react-router-dom";
+import UserIcon from "../components/UserIcon";
 
 const Navigation = () => {
   const [topics, setTopics] = useState([]);
@@ -13,11 +14,11 @@ const Navigation = () => {
   }, []);
 
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="gap-3 px-3">
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="gap-3px-3" fixed="top"  >
       <div className="Navigation_container">
       <Container>
         <Navbar.Brand href="/" as={Link} to="/">
-        <img src={require('../images/NCNewsLogo.jpg')} width="40%" alt="NC-News logo" />
+        <img src={require('../images/NCNewsLogo.jpg')} width="45%" alt="NC-News logo" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -49,6 +50,7 @@ const Navigation = () => {
           </Nav>
         </Navbar.Collapse>
       </Container>
+      <UserIcon />
       </div>
     </Navbar>
   );
