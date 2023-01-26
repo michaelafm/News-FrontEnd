@@ -14,9 +14,10 @@ const Navigation = () => {
 
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="gap-3 px-3">
+      <div className="Navigation_container">
       <Container>
         <Navbar.Brand href="/" as={Link} to="/">
-          <h1>NC News</h1>
+        <img src={require('../images/NCNewsLogo.jpg')} width="40%" alt="NC-News logo" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -48,6 +49,7 @@ const Navigation = () => {
           </Nav>
         </Navbar.Collapse>
       </Container>
+      </div>
     </Navbar>
   );
 };

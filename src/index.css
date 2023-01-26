@@ -55,6 +55,16 @@ h4 {
   padding: 1rem;
 }
 
+.Navigation_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.Navigation_logo {
+  padding: 0;
+}
+
 .SortByQuery {
   display: flex;
   flex-direction: column;
