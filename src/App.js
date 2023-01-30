@@ -21,6 +21,7 @@ function App() {
       themeMode={darkMode ? "dark" : "light"}
     >
       <UserProvider>
+        <div className="App_container">
         <Box pad="large">
           <Navigation />
           <div className="App_theme-container">
@@ -39,6 +40,7 @@ function App() {
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         </Box>
+        </div>
       </UserProvider>
     </Grommet>
   );

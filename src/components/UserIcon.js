@@ -9,7 +9,6 @@ function UserIcon() {
 
   return userValue.user.username ? (
     <div className="UserIcon_container">
-      <p>{userValue.user.username}</p>
       <div className="UserIcon_holder">
         <img
           className="UserIcon_img"
@@ -17,6 +16,7 @@ function UserIcon() {
           alt={`user icon of ${userValue.user.username}`}
         ></img>
       </div>
+      <p>{userValue.user.username}</p>
       <div className="UserIcon_buttonContainer">
         <Button
           size="sm"
@@ -30,10 +30,12 @@ function UserIcon() {
       </div>
     </div>
   ) : (
-    <div className="UserIcon_login">
+    <div className="UserIcon_container">
+      <div className="UserIcon_login">
       <Anchor as={Link} to="/users" className="login-link">
         <p>Log in</p>
       </Anchor>
+      </div>
     </div>
   );
 }

@@ -47,25 +47,39 @@ h4 {
   text-transform: capitalize;
 }
 
+.App_container {
+  padding-top: 5rem;
+  height: 80%;
+}
+
 .App_theme-container {
-  display:flex;
-  flex-direction: row-reverse;
+  display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: flex-start;
+  align-items: center;
   padding: 1rem;
-  padding-top: 9.5rem;
+  padding-top: 4rem;
   padding-left: 1rem;
+  padding-bottom: 1rem;
 }
 
 .Navigation_container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  width: 100%;
+  height: 10%;
 }
 
 .Navigation_logo {
-  padding: 0;
+  padding-left: 0;
+  margin-left: 0;
+  padding-right: 0;
+  margin-right: 0;
+  width: 18rem;
+  padding-bottom: 1rem;
 }
 
 .Navigation_topicsAndUserIcon {
@@ -119,12 +133,10 @@ h4 {
   padding: 1em;
 }
 
-
 .Articles_article {
   padding-top: 0.5em;
   padding-bottom: 0.5em;
 }
-
 
 .LoadingAnimation {
   display: flex;
@@ -180,7 +192,7 @@ h4 {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  color:#7D4CDB
+  color: #7d4cdb;
 }
 
 .Comments_comment {
@@ -217,13 +229,13 @@ h4 {
   flex-direction: column;
   align-content: center;
   align-items: center;
-  padding: 2em;
-  width: 25vw;
-  height: 25vh;
+  padding: 2rem;
+  width: 15rem;
+  height: 15rem;
 }
 
 .Users_user_avatar {
-  width: 60px;
+  height: 5rem;
 }
 
 .Users_list_card {
@@ -252,13 +264,15 @@ h4 {
   justify-content: center;
   align-items: center;
   font-size: 14px;
-  padding-right: 1em;
-  width: 30%;
+  width: 23vw;
+  height: 23vh;
+  padding-right: 0.5rem;
 }
 
 .UserIcon_container p {
-  padding-bottom: 0;
-  color: #6FFFB0;
+  padding: 0;
+  font-size: 0.7rem;
+  color: #6fffb0;
 }
 
 .UserIcon_holder {
@@ -267,27 +281,27 @@ h4 {
   justify-content: center;
   align-items: center;
   background-color: white;
-  width: 5rem;
-  height: 5rem;
+  width: 4rem;
+  height: 4rem;
   border-style: solid;
   border-width: 0.2rem;
-  border-color:#7D4CDB;
+  border-color: #7d4cdb;
   border-radius: 50%;
   z-index: 1;
+  padding: 0;
 }
-
 
 .UserIcon_buttonContainer {
-  padding: 0.5rem;
+  padding: 0;
 }
 
-.UserIcon_login {
-  padding-right: 0.5em;
-  width: 10%;
+.UserIcon_login p {
+  font-size: 1.2rem;
+  color: #6fffb0;
 }
 
 .UserIcon_img {
-  width: 40px;
+  height: 2.5rem;
   padding: 0.2em;
 }
 
