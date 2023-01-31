@@ -1,5 +1,6 @@
 import { CheckBox, Select } from "grommet";
 import { useState } from "react";
+import UserIcon from "./UserIcon";
 
 function SortByQuery({ setSearchParams, searchParams }) {
   const [orderToggle, setOrderToggle] = useState(false);

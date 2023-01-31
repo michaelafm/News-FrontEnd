@@ -20,7 +20,7 @@ function UserIcon() {
       <div className="UserIcon_buttonContainer">
         <Button
           size="sm"
-          variant="outline-light"
+          variant="dark"
           onClick={() => {
             userValue.logout();
           }}

@@ -9,6 +9,7 @@ import ErrorPage from "./components/ErrorPage";
 import Navigation from "./navigation/Navigation";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { UserProvider } from "./contexts/User";
+import UserIcon from "./components/UserIcon";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -21,26 +22,25 @@ function App() {
       themeMode={darkMode ? "dark" : "light"}
     >
       <UserProvider>
-        <div className="App_container">
-        <Box pad="large">
-          <Navigation />
-          <div className="App_theme-container">
-            <CheckBox
-              label={darkMode ? "Light Mode" : "Dark Mode"}
-              checked={darkMode}
-              onChange={(event) => setDarkMode(event.target.checked)}
-              toggle
-            />
-          </div>
-          <Routes>
-            <Route path="/" element={<Articles />} />
-            <Route path="/article/:article_id" element={<SingleArticle />} />
-            <Route path="/users" element={<Users />} />
-            <Route path="/articles/:topic" element={<Articles />} />
-            <Route path="*" element={<ErrorPage />} />
-          </Routes>
-        </Box>
-        </div>
+
+      <Navigation />
+          <Box pad="large">
+            <div className="App_theme-login-container">
+              <CheckBox
+                label={darkMode ? "Light Mode" : "Dark Mode"}
+                checked={darkMode}
+                onChange={(event) => setDarkMode(event.target.checked)}
+                toggle
+              />
+            </div>
+            <Routes>
+              <Route path="/" element={<Articles />} />
+              <Route path="/article/:article_id" element={<SingleArticle />} />
+              <Route path="/users" element={<Users />} />
+              <Route path="/articles/:topic" element={<Articles />} />
+              <Route path="*" element={<ErrorPage />} />
+            </Routes>
+          </Box>
       </UserProvider>
     </Grommet>
   );

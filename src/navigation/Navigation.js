@@ -2,7 +2,6 @@ import { Navbar, Nav, Container } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { getTopics } from "../utils/api";
 import { Link } from "react-router-dom";
-import UserIcon from "../components/UserIcon";
 
 const Navigation = () => {
   const [topics, setTopics] = useState([]);
@@ -14,6 +13,8 @@ const Navigation = () => {
   }, []);
 
   return (
+    <div className="Navigation_container">
+
       <Navbar
         collapseOnSelect
         expand="lg"
@@ -22,7 +23,6 @@ const Navigation = () => {
         className="gap-3px-3"
         fixed="top"
       >
-            <div className="Navigation_container">
 
           <Container>
             <div className="Navigation_logo">
@@ -65,9 +65,9 @@ const Navigation = () => {
               </Nav>
             </Navbar.Collapse>
           </Container>
-        <UserIcon />
-        </div>
       </Navbar>
+      </div>
+
   );
 };
 
