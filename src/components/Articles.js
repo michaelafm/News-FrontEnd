@@ -7,6 +7,7 @@ import ErrorPage from "./ErrorPage";
 import LoadingAnimation from "./LoadingAnimation";
 import { Link } from "react-router-dom";
 
+
 function Articles() {
   const [articles, setArticles] = useState([]);
   const [loadingArticles, setLoadingArticles] = useState(true);
@@ -43,9 +44,12 @@ function Articles() {
   }
 
   return (
+
     <main>
       <div className="Articles_header_container">
+          <div className="Articles_header">
         {topic ? <h2>{topic} articles</h2> : <h2>All articles</h2>}
+        </div>
         {location.pathname === previousLocation ? (
           <SortByQuery
             setSearchParams={setSearchParams}
