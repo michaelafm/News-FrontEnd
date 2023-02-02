@@ -1,6 +1,5 @@
 import { CheckBox, Select } from "grommet";
 import { useState } from "react";
-import UserIcon from "./UserIcon";
 
 function SortByQuery({ setSearchParams, searchParams }) {
   const [orderToggle, setOrderToggle] = useState(false);
@@ -32,7 +31,7 @@ function SortByQuery({ setSearchParams, searchParams }) {
   return (
     <div className="SortByQuery">
       <div className="SortByQuery_query">
-        <p className="SortByQuery_title">Sort by:</p>
+        <p>Sort by:</p>
         <Select
           options={["Date", "Comment count", "Votes", "Author", "Title"]}
           value={value}

@@ -6,7 +6,7 @@ import SortByQuery from "./SortByQuery";
 import ErrorPage from "./ErrorPage";
 import LoadingAnimation from "./LoadingAnimation";
 import { Link } from "react-router-dom";
-import UserIcon from "./UserIcon";
+
 
 function Articles() {
   const [articles, setArticles] = useState([]);
@@ -44,11 +44,11 @@ function Articles() {
   }
 
   return (
+
     <main>
       <div className="Articles_header_container">
-        <div className="Articles_UserIcon_container">
+          <div className="Articles_header">
         {topic ? <h2>{topic} articles</h2> : <h2>All articles</h2>}
-        <UserIcon />
         </div>
         {location.pathname === previousLocation ? (
           <SortByQuery

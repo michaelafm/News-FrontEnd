@@ -22,17 +22,20 @@ function App() {
       themeMode={darkMode ? "dark" : "light"}
     >
       <UserProvider>
-
-      <Navigation />
+        <div className="App_container">
           <Box pad="large">
-            <div className="App_theme-login-container">
-              <CheckBox
-                label={darkMode ? "Light Mode" : "Dark Mode"}
-                checked={darkMode}
-                onChange={(event) => setDarkMode(event.target.checked)}
-                toggle
-              />
+            <div className="App_theme-login_container">
+              <div className="App_theme">
+                <CheckBox
+                  label={darkMode ? "Light Mode" : "Dark Mode"}
+                  checked={darkMode}
+                  onChange={(event) => setDarkMode(event.target.checked)}
+                  toggle
+                />
+              </div>
+              <UserIcon />
             </div>
+            <Navigation />
             <Routes>
               <Route path="/" element={<Articles />} />
               <Route path="/article/:article_id" element={<SingleArticle />} />
@@ -41,6 +44,7 @@ function App() {
               <Route path="*" element={<ErrorPage />} />
             </Routes>
           </Box>
+        </div>
       </UserProvider>
     </Grommet>
   );
